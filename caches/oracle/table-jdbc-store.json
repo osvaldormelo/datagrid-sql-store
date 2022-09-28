@@ -1,0 +1,26 @@
+{
+    "distributed-cache": {
+      "encoding": {
+        "media-type": "application/x-protostream"
+      },
+      "persistence": {
+        "table-jdbc-store": {
+          "dialect": "ORACLE",
+          "shared": "true",
+          "table-name": "keys",
+          "schema":{
+            "message-name":"KeyOracle_value",
+            "key-message-name": "KeyOracle_key",
+            "package":"com.example",
+            "embedded-key":"true"
+          },
+          "connection-pool": {
+            "connection-url": "jdbc:oracle:thin:@//oracle19c:1521/ABCPDB1",
+            "driver": "oracle.jdbc.OracleDriver",
+            "username": "ot",
+            "password": "Orcl1234"
+          }       
+        }
+      }
+    }
+  }

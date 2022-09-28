@@ -1,0 +1,38 @@
+{
+    "distributed-cache": {
+      "encoding": {
+        "media-type": "application/x-protostream"
+      },
+      "persistence": {
+        "string-keyed-jdbc-store": {
+          "dialect": "POSTGRES",
+          "string-keyed-table": {
+            "prefix": "KEYS",
+            "create-on-start": true,
+            "id-column": {
+              "name": "ID",
+              "type": "VARCHAR(255)"
+            },
+            "data-column": {
+              "name": "DATA",
+              "type": "BYTEA"
+            },
+            "timestamp-column": {
+              "name": "TIMESTAMP",
+              "type": "BIGINT"
+            },
+            "segment-column": {
+              "name": "SEGMENT",
+              "type": "INT"
+            }
+          },
+          "connection-pool": {
+             "connection-url": "jdbc:postgresql://postgresql:5432/sampledb",
+             "driver": "org.postgresql.Driver",
+             "username": "user",
+             "password": "pass"
+           }
+        }
+      }
+    }
+  }

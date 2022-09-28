@@ -1,0 +1,26 @@
+{
+    "distributed-cache": {
+      "encoding": {
+        "media-type": "application/x-protostream"
+      },
+      "persistence": {
+        "table-jdbc-store": {
+          "dialect": "POSTGRES",
+          "shared": "true",
+          "table-name": "_keys",
+          "schema":{
+            "message-name":"KeyPostgre_value",
+            "key-message-name": "KeyPostgre_key",
+            "package":"com.example",
+            "embedded-key":"true"
+          },
+          "connection-pool": {
+            "connection-url": "jdbc:postgresql://postgresql:5432/sampledb",
+            "driver": "org.postgresql.Driver",
+            "username": "user",
+            "password": "pass"
+          }
+        }
+      }
+    }
+  }

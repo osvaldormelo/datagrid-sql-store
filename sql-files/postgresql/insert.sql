@@ -1,0 +1,1 @@
+INSERT INTO _keys(_key,_value) VALUES('99999999999','omelo@redhat.com');

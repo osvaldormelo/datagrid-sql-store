@@ -1,0 +1,34 @@
+{
+    "distributed-cache":{
+        "encoding": {
+            "media-type": "application/x-protostream"
+          },
+        "persistence":{
+          "query-jdbc-store":{
+             "dialect":"POSTGRES",
+             "shared":"true",
+             "key-columns":"_key",
+             "queries":{
+                "select-single":"SELECT _id, _key, _value FROM _keys WHERE _key = :_key",
+                "select-all":"SELECT _id, _key, _value FROM _keys",
+                "delete-single":"DELETE FROM _keys WHERE _key = :_key",
+                "delete-all":"DELETE FROM _keys",
+                "upsert":"INSERT INTO _keys(_key,_value) VALUES(:_key, :_value)",
+                "size":"SELECT COUNT(*) FROM _keys"
+             },
+             "schema":{
+                "message-name":"KeyPostgre_value",
+                "key-message-name": "KeyPostgre_key",
+                "package":"com.example",
+                "embedded-key":"true"
+              },
+             "connection-pool": {
+                "connection-url": "jdbc:postgresql://postgresql:5432/sampledb",
+                "driver": "org.postgresql.Driver",
+                "username": "user",
+                "password": "pass"
+              }
+          }
+       }
+    }
+ }

@@ -1,0 +1,34 @@
+{
+    "distributed-cache":{
+        "encoding": {
+            "media-type": "application/x-protostream"
+          },
+        "persistence":{
+          "query-jdbc-store":{
+             "dialect":"ORACLE",
+             "shared":"true",
+             "key-columns":"key",
+             "queries":{
+                "select-single":"SELECT id, key, value FROM ot.keys WHERE key = :key",
+                "select-all":"SELECT id, key, value FROM ot.keys",
+                "delete-single":"DELETE FROM _keys WHERE key = :key",
+                "delete-all":"DELETE FROM ot.keys",
+                "upsert":"INSERT INTO ot.keys(key,value) VALUES(:key, :value)",
+                "size":"SELECT COUNT(*) FROM ot.keys"
+             },
+             "schema":{
+               "message-name":"KeyOracle_value",
+               "key-message-name": "KeyOracle_key",
+               "package":"com.example",
+               "embedded-key":"true"
+             },
+              "connection-pool": {
+               "connection-url": "jdbc:oracle:thin:@//oracle19c:1521/ABCPDB1",
+               "driver": "oracle.jdbc.OracleDriver",
+               "username": "ot",
+               "password": "Orcl1234"
+             }
+          }
+       }
+    }
+ }

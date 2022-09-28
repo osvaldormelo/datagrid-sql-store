@@ -1,0 +1,38 @@
+{
+  "distributed-cache": {
+    "encoding": {
+      "media-type": "application/x-protostream"
+    },
+    "persistence": {
+      "string-keyed-jdbc-store": {
+        "dialect": "ORACLE",
+        "string-keyed-table": {
+          "prefix": "KEYS",
+          "create-on-start": true,
+          "id-column": {
+            "name": "ID",
+            "type": "VARCHAR(50)"
+          },
+          "data-column": {
+            "name": "DATA",
+            "type": "VARCHAR(255)"
+          },
+          "timestamp-column": {
+            "name": "TIMESTAMP",
+            "type": "NUMBER(19)"
+          },
+          "segment-column": {
+            "name": "SEGMENT",
+            "type": "NUMBER(10)"
+          }
+        },
+        "connection-pool": {
+           "connection-url": "jdbc:oracle:thin:@//oracle19c:1521/ABCPDB1",
+           "driver": "oracle.jdbc.OracleDriver",
+           "username": "ot",
+           "password": "Orcl1234"
+         }
+      }
+    }
+  }
+}

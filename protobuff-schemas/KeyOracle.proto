@@ -1,0 +1,12 @@
+syntax = "proto3";
+package com.example;
+
+message KeyOracle_key {
+    optional int32 id = 1;
+}
+
+message KeyOracle_value {
+   required int32 id = 1;
+   required string key = 2;
+   optional string value = 3;
+}

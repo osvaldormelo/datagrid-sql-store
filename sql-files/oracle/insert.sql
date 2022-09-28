@@ -1,0 +1,1 @@
+INSERT INTO ot.keys(key,value) VALUES('98715470130','omelo@osvaldormelo.com');

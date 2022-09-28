@@ -1,0 +1,12 @@
+syntax = "proto3";
+package com.example;
+
+message KeyPostgre_key {
+    optional int32 _id = 1;
+}
+
+message KeyPostgre_value {
+   required int32 _id = 1;
+   required string _key = 2;
+   optional string _value = 3;
+}
